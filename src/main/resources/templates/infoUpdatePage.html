@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+    <title>Update</title>
+</head>
+<body>
+
+<div class="row">
+    <div class="column1">
+        <h3 th:text="${welcomeText}"></h3>
+    </div>
+    <div class="column2">
+        <button class="logout-btn">Logout</button>
+    </div>
+</div>
+
+<div class="update-page">
+    <div class="form">
+        <h3>Update Information</h3>
+        <form id="update-form" action="/update" modelAttribute="updateForm" method="post">
+            <input type="text" placeholder="Country" name="country" required/><br>
+            <input type="text" placeholder="Mobile Number" name="mobileNumber" required/><br>
+            <input type="hidden" id="csrf" name="csrf" />
+            <button class="submit-btn" type="submit">Update</button>
+        </form>
+        <div class="info-success">
+            <h3 th:text="${successMSG}"></h3>
+        </div>
+        <div class="info-error">
+            <h3 th:text="${errorMSG}"></h3>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script type="text/javascript" th:src="@{js/update.js}"></script>
+</body>
+</html>

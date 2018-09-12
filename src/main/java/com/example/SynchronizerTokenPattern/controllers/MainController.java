@@ -1,7 +1,5 @@
-package com.example.SynchronizerTokenPattern;
+package com.example.SynchronizerTokenPattern.controllers;
 
-import com.example.SynchronizerTokenPattern.controllers.Credentials;
-import com.example.SynchronizerTokenPattern.controllers.Processes;
 import com.example.SynchronizerTokenPattern.models.LoginDataModel;
 import com.example.SynchronizerTokenPattern.models.UpdateModel;
 import com.example.SynchronizerTokenPattern.models.UserDataModel;
@@ -108,7 +106,7 @@ public class MainController {
 
                 if (cookie.getName().equals("SESSIONID")) {
                     receivedSessionId = cookie.getValue();
-                    if(receivedCSRFToken.equals(Credentials.getInstance().getCSRF(receivedSessionId))){
+                    if (receivedCSRFToken.equals(Credentials.getInstance().getCSRF(receivedSessionId))) {
                         modelAndView = new ModelAndView("infoUpdatePage");
                         modelAndView.addObject("welcomeText", "Welcome " + Credentials.getInstance().getUserName(receivedSessionId));
                         modelAndView.addObject("successMSG", "User Updated successfully");
@@ -116,7 +114,7 @@ public class MainController {
                 }
             }
 
-            if (modelAndView == null){
+            if (modelAndView == null) {
                 modelAndView = new ModelAndView("infoUpdatePage");
                 modelAndView.addObject("errorMSG", "Update Failed. Invalid User");
             }
